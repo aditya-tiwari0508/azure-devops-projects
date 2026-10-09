@@ -1,0 +1,40 @@
+name: terraform ci pipeline
+on
+  push:
+    branches:
+      - main
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+
+permission:
+  content: read
+
+jobs:
+  terraform-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: install terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: check terraform formatting
+        run: terraform fmt -check -recursive
+
+      - name: terraform version
+        run: terraform --version 
+
+
+        
+
+     
+    
+      
+      
+    
+      
+        
