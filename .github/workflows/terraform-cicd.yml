@@ -29,3 +29,9 @@ jobs:
 
       - name: Show Terraform version
         run: terraform --version
+      - name: initialize Terraform
+        working-directory: environment/dev
+        run: terraform init -backend=false
+      - name: Validate Terraform Configuration
+        working-directory: environment/dev
+                run: terraform validate
