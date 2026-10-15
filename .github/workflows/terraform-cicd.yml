@@ -32,7 +32,7 @@ jobs:
 
       - name: Initialize Terraform
         working-directory: environment/dev
-        run: terraform init -backend=false
+        run: terraform init -backend=false -lockfile=readonly
 
       - name: Validate Terraform configuration
         working-directory: environment/dev
