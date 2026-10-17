@@ -5,5 +5,5 @@ variable "rgnames" {
   }))
 }
 variable "storage_accounts" {
-  
+
 }
