@@ -44,3 +44,11 @@ jobs:
       - name: Validate Terraform configuration
         working-directory: environment/dev
         run: terraform validate
+      - name: Scan Terraform for security misconfigurations
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: config
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          exit-code: '0'
+          hide-progress: true
